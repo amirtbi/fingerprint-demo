@@ -2,6 +2,7 @@ document.getElementById("create-account").addEventListener("submit", event => {
     event.preventDefault();
     let username = document.getElementById("username").value;
     let name = document.getElementById("name").value;
+    let password = document.getElementById("password").value;
     navigator.credentials.create({
         publicKey: {
             // if you're reading this code for inspiration, don't do this!!!
@@ -15,6 +16,7 @@ document.getElementById("create-account").addEventListener("submit", event => {
                 id: Uint8Array.from(username.split("").map(c => c.codePointAt(0))),
                 name: username,
                 displayName: name,
+                password:password
             },
             pubKeyCredParams: [],
             authenticatorSelection: {
